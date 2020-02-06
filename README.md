@@ -1,7 +1,7 @@
 # CatchUs
 
 ## Description
-CatchUs is an application created for Hackathon event in colaboration with @rafaltecza. Project is based on Xamarin framework.
+CatchUs is an application created for Hackathon event in colaboration with [@rafaltecza](https://github.com/rafaltecza). Project is based on Xamarin framework.
 
 <p align="center">
   <img src="https://i.imgur.com/Rhrpe0B.gif">
