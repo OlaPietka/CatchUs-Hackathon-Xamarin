@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Custom="clr-namespace:CatchUs.Custom"
+             x:Class="CatchUs.View.SettingsPage"
+             BackgroundColor="#303638">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="RegisterEntry" TargetType="Custom:AppEntry">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="#212526" />
+                <Setter Property="BorderWidth" Value="3" />
+                <Setter Property="BorderRadius" Value="6" />
+                <Setter Property="StartColor" Value="#282c2e" />
+                <Setter Property="EndColor" Value="#232728" />
+                <Setter Property="Keyboard" Value="Default"/>
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Snow"/>
+                <Setter Property="IsSpellCheckEnabled" Value="false" />
+                <Setter Property="IsTextPredictionEnabled" Value="false" />
+                <Setter Property="HeightRequest" Value="50"/>
+            </Style>
+            <Style x:Key="TextLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="{StaticResource ThinFont}"/>
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="WidthRequest" Value="130"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="93*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0">
+                <Grid>
+
+                    <!--Dzielenie na wiersze-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="15*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Dzielenie na kolumny-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="25*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Margin="0, 50, 0, 0" Source="logo.png" Grid.Column="1" 
+                           Grid.Row="0"
+                           Aspect="AspectFit"
+                           VerticalOptions="FillAndExpand"/>
+
+                    <StackLayout Spacing="15" Grid.Row="1" Grid.Column="1">
+                        <!-- SignUp Button -->
+                        <Custom:AppButton x:Name="Avatar"
+                                    Text="Avatar"
+                                    TextColor="#303638"
+                                    FontSize = "Large"
+                                    WidthRequest="140"
+                                    HeightRequest="34"
+                                    Clicked="Avatar_Clicked"
+                                    FixedBorderRadius="10"
+                                    MiddleColorEnabled="True"
+                                    StartColor = "#4B98DB"
+                                    MiddleColor ="#7FB7BE"
+                                    EndColor = "#B6E3F8"
+                                    Orientation="LeftRight"
+                                    FontFamily="{StaticResource BoldFont}"/>
+                        <!-- SignUp Button -->
+                        <Custom:AppButton x:Name="Contact"
+                                    Text="Contact"
+                                    TextColor="#303638"
+                                    FontSize = "Large"
+                                    WidthRequest="140"
+                                    HeightRequest="34"
+                                    Clicked="Contact_Clicked"
+                                    FixedBorderRadius="10"
+                                    MiddleColorEnabled="True"
+                                    StartColor = "#4B98DB"
+                                    MiddleColor ="#7FB7BE"
+                                    EndColor = "#B6E3F8"
+                                    Orientation="LeftRight"
+                                    FontFamily="{StaticResource BoldFont}"/>
+                        <!-- SignUp Button -->
+                        <Custom:AppButton x:Name="Authors"
+                                    Text="Authors"
+                                    TextColor="#303638"
+                                    FontSize = "Large"
+                                    WidthRequest="140"
+                                    Clicked="Authors_Clicked"
+                                    HeightRequest="34"
+                                    FixedBorderRadius="10"
+                                    MiddleColorEnabled="True"
+                                    StartColor = "#4B98DB"
+                                    MiddleColor ="#7FB7BE"
+                                    EndColor = "#B6E3F8"
+                                    Orientation="LeftRight"
+                                    FontFamily="{StaticResource BoldFont}"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="4" Grid.Column="1">
+                        <!-- Login Button -->
+                        <Custom:AppButton x:Name="SignOut"
+                                    Text="Sign Out"
+                                    TextColor="#303638"
+                                    FontSize = "Large"
+                                    Clicked="SignOut_Clicked"
+                                    WidthRequest="140"
+                                    HeightRequest="34"
+                                    FixedBorderRadius="10"
+                                    MiddleColorEnabled="True"
+                                    StartColor = "#4B98DB"
+                                    MiddleColor ="#7FB7BE"
+                                    EndColor = "#B6E3F8"
+                                    Orientation="LeftRight"
+                                    FontFamily="{StaticResource BoldFont}"/>
+                        
+                        <Label x:Name="Info"
+                        Text="CatchUs have been created for BeHealth 2."
+                        TextColor="DarkGray"
+                        HorizontalTextAlignment="Center"
+                        FontSize = "14"
+                        WidthRequest="140"
+                        HeightRequest="20"
+                        FontFamily="{StaticResource ThinFont}"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <Custom:AppStackLayout Grid.Row="1" StartColor="#141717" EndColor="#212525" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Custom:AppImage x:Name ="Left" Grid.Column="0" Source="menu_meetings"/>
+                    <Custom:AppImage x:Name ="Middle" Grid.Column="1" Source="menu_home"/>
+                    <Custom:AppImage x:Name ="Right" Grid.Column="2" Source="menu_settings"/>
+                </Grid>
+            </Custom:AppStackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

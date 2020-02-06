@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatchUs.View.VerifyCodePage"
+             xmlns:Custom="clr-namespace:CatchUs.Custom"
+             BackgroundColor="#303638">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Entry" TargetType="Custom:AppEntry">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="#212526" />
+                <Setter Property="BorderWidth" Value="3" />
+                <Setter Property="BorderRadius" Value="6" />
+                <Setter Property="StartColor" Value="#282c2e" />
+                <Setter Property="EndColor" Value="#232728" />
+                <Setter Property="Keyboard" Value="Default"/>
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="Snow"/>
+                <Setter Property="IsSpellCheckEnabled" Value="false" />
+                <Setter Property="IsTextPredictionEnabled" Value="false" />
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+            <Style x:Key="NotificationLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Micro"/>
+                <Setter Property="TextColor" Value="#7fb7be" />
+                <Setter Property="WidthRequest" Value="130"/>
+            </Style>
+            <Style x:Key="TextLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="WidthRequest" Value="130"/>
+            </Style>
+            <Style x:Key="NameLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="WidthRequest" Value="130"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <Grid>
+            <!--Dzielenie na wiersze-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="14*"/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="43*"/>
+            </Grid.RowDefinitions>
+
+            <!--Dzielenie na kolumny-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="25*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Margin="0, 50, 0, 0" Source="logo.png" Grid.Column="1" 
+                   Grid.Row="0"
+                   Aspect="AspectFit"
+                   VerticalOptions="FillAndExpand"/>
+
+            <StackLayout Spacing="5" Grid.Row="2" Grid.Column="1">
+                <!--Text Username-->
+                <Label x:Name="LabelVerifyCode"
+                        Style="{StaticResource TextLabel}"
+                        Text="Entry code from received e-mail."/>
+            </StackLayout>
+
+            <StackLayout Spacing="5" Grid.Row="3" Grid.Column="1">
+                <!--Text Username-->
+                <Label x:Name="TextCode"
+                        Style="{StaticResource NameLabel}"
+                        Text="Code:"/>
+
+                <!--Custom Username Entry-->
+                <Custom:AppEntry x:Name="VerificationCode"
+                                    Style="{StaticResource Entry}">
+                </Custom:AppEntry>
+            </StackLayout>
+
+            <StackLayout Spacing="5" Grid.Row="4" Grid.Column="1">
+                <!-- Login Button -->
+                <Custom:AppButton x:Name="VerifyCode"
+                                Text="Verify"
+                                TextColor="#303638"
+                                FontSize = "Large"
+                                Clicked="VerifyCode_Clicked"
+                                WidthRequest="140"
+                                HeightRequest="34"
+                                FixedBorderRadius="10"
+                                MiddleColorEnabled="True"
+                                StartColor = "#4B98DB"
+                                MiddleColor ="#7FB7BE"
+                                EndColor = "#B6E3F8"
+                                Orientation="LeftRight"
+                                FontFamily="{StaticResource BoldFont}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

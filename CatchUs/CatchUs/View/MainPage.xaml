@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatchUs.View.MainPage"
+             xmlns:Custom="clr-namespace:CatchUs.Custom"
+             BackgroundColor="#303638">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="RegisterEntry" TargetType="Custom:AppEntry">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="#212526" />
+                <Setter Property="BorderWidth" Value="3" />
+                <Setter Property="BorderRadius" Value="6" />
+                <Setter Property="StartColor" Value="#282c2e" />
+                <Setter Property="EndColor" Value="#232728" />
+                <Setter Property="Keyboard" Value="Default"/>
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Snow"/>
+                <Setter Property="IsSpellCheckEnabled" Value="false" />
+                <Setter Property="IsTextPredictionEnabled" Value="false" />
+                <Setter Property="HeightRequest" Value="50"/> 
+            </Style>
+            <Style x:Key="TextLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="{StaticResource ThinFont}"/>
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="WidthRequest" Value="130"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            
+            <!--Dzielenie na wiersze-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+
+            <!--Dzielenie na kolumny-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="25*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Margin="0, 50, 0, 0" Source="logo.png" Grid.Column="1" 
+                   Grid.Row="0"
+                   Aspect="AspectFit"
+                   VerticalOptions="FillAndExpand"/>
+
+            <StackLayout Spacing="5" Grid.Row="1" Grid.Column="1">
+                <!--Text Username-->
+                <Label x:Name="TextUsername"
+                        Style="{StaticResource TextLabel}"
+                        Text="Email:"/>
+
+                <!--Custom Username Entry-->
+                <Custom:AppEntry x:Name="Login"
+                                    Style="{StaticResource RegisterEntry}"
+                                    MaxLength="16">
+                </Custom:AppEntry>
+            
+                <!--Text Password -->
+                <Label x:Name="TextPassword"
+                        Style="{StaticResource TextLabel}"
+                        Text="Password:"/>
+
+                <!--Custom Password Entry-->
+                <Custom:AppEntry x:Name="Password"
+                                    Style="{StaticResource RegisterEntry}"
+                                    IsPassword="true">
+                </Custom:AppEntry>
+            </StackLayout>
+
+            <StackLayout Spacing="10" Grid.Row="2" Grid.Column="1">
+                <!-- Login Button -->
+                <Custom:AppButton x:Name="LogInButton"
+                                    Text="Sign In"
+                                    TextColor="#303638"
+                                    FontSize = "Large"
+                                    Clicked="LogInButton_Clicked"
+                                    WidthRequest="140"
+                                    HeightRequest="34"
+                                    FixedBorderRadius="10"
+                                    MiddleColorEnabled="True"
+                                    StartColor = "#4B98DB"
+                                    MiddleColor ="#7FB7BE"
+                                    EndColor = "#B6E3F8"
+                                    Orientation="LeftRight"
+                                    FontFamily="{StaticResource BoldFont}"/>
+            
+                <!-- Forgot Password Button -->
+                <Custom:AppButton x:Name="ForgotPassword"
+                                    Text="Forgot Password?"
+                                    TextColor="DarkGray"
+                                    FontSize = "Medium"
+                                    Clicked="ForgotPassword_Clicked"
+                                    WidthRequest="140"
+                                    HeightRequest="20"
+                                    FixedBorderRadius="20"
+                                    BorderColor="Transparent"
+                                    FontFamily="{StaticResource ThinFont}"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" Grid.Column="1">
+
+                <Label x:Name="ForgotPasswordText"
+                        Text="Are you a new user?"
+                        TextColor="DarkGray"
+                        HorizontalTextAlignment="Center"
+                        FontSize = "Medium"
+                        WidthRequest="140"
+                        HeightRequest="20"
+                        FontFamily="{StaticResource BoldFont}"/>
+
+                <!-- SignUp Button -->
+                <Custom:AppButton x:Name="SignUpButton"
+                                    Text="Sign Up"
+                                    TextColor="#303638"
+                                    FontSize = "Large"
+                                    Clicked="SignUpButton_Clicked"
+                                    WidthRequest="140"
+                                    HeightRequest="34"
+                                    FixedBorderRadius="10"
+                                    MiddleColorEnabled="True"
+                                    StartColor = "#4B98DB"
+                                    MiddleColor ="#7FB7BE"
+                                    EndColor = "#B6E3F8"
+                                    Orientation="LeftRight"
+                                    FontFamily="{StaticResource BoldFont}"/>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Custom="clr-namespace:CatchUs.Custom"
+             x:Class="CatchUs.View.MeetingsViewPage"
+             BackgroundColor="#303638">
+        <Grid>
+    
+            <Grid.RowDefinitions>
+                <RowDefinition Height="93*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+        <ScrollView>
+            <ListView  x:Name="listView" RowHeight="80" ItemSelected="ListView_ItemSelected" Grid.Row="0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell x:Name ="stackk">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" 
+                                        Grid.Row="0" 
+                                        Source="{Binding Banner}" 
+                                        Aspect="AspectFill"
+                                        Opacity="0.4"/>     
+
+
+                                <StackLayout x:Name ="stack" 
+                                         Grid.Column="0" 
+                                         Grid.Row="0" 
+                                         Orientation="Horizontal" 
+                                         HorizontalOptions="Fill" 
+                                         BackgroundColor="Transparent">
+
+                                    <Image x:Name="img" 
+                                        Source="{Binding Image}" 
+                                       WidthRequest="70"
+                                       HeightRequest="70"/>
+
+                                    <StackLayout Margin="0, 16, 0, 0" Orientation="Vertical" Grid.Column="0" Grid.Row="0">
+                                        <Label Text = "{Binding Name}" 
+                                           FontSize="Large"
+                                           TextColor="Snow"
+                                           FontFamily="{StaticResource BoldFont}"/>
+
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString >
+                                                    <Span Text="{Binding Date}" 
+                                                      FontSize="Medium"
+                                                      TextColor="Snow"
+                                                      FontFamily="{StaticResource ThinFont}"/>
+
+                                                    <Span Text=", " 
+                                                      FontSize="Medium"
+                                                      TextColor="Snow"
+                                                      FontFamily="{StaticResource ThinFont}"/>
+
+                                                    <Span x:Name="Time" 
+                                                      Text="{Binding Time}" 
+                                                      FontSize="Medium"
+                                                      TextColor="Snow"
+                                                      FontFamily="{StaticResource ThinFont}"/>
+
+                                                    <Span x:Name="MeetingId" 
+                                                      Text="{Binding Id}"
+                                                      TextColor="Transparent"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </ScrollView>
+
+        <Custom:AppStackLayout Grid.Row="1" StartColor="#141717" EndColor="#212525" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Custom:AppImage x:Name ="Left" Grid.Column="0" Source="menu_meetings"/>
+                <Custom:AppImage x:Name ="Middle" Grid.Column="1" Source="menu_home"/>
+                <Custom:AppImage x:Name ="Right" Grid.Column="2" Source="menu_settings"/>
+            </Grid>
+        </Custom:AppStackLayout>
+    </Grid>
+</ContentPage>

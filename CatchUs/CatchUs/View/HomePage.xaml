@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Custom="clr-namespace:CatchUs.Custom"
+             x:Class="CatchUs.View.HomePage" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <StackLayout x:Name="HomePageLayout" Grid.Row="0"/>
+
+        <Custom:AppStackLayout Grid.Row="1" StartColor="#141717" EndColor="#212525" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Custom:AppImage x:Name ="Left" Grid.Column="0" Source="menu_meetings"/>
+                <Custom:AppImage x:Name ="Middle" Grid.Column="1" Source="menu_home"/>
+                <Custom:AppImage x:Name ="Right" Grid.Column="2" Source="menu_settings"/>
+            </Grid>
+        </Custom:AppStackLayout>
+    </Grid>
+</ContentPage>
